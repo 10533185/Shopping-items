@@ -7,3 +7,6 @@ class Basket:
         if sku not in self.__Items:
             return 0
         return self.__Items[sku]
+    
+    def addItems(self,sku,qty):
+        self.__Items[sku]= self.basketItems(sku)+qty
