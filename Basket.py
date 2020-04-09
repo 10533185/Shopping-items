@@ -9,4 +9,14 @@ class Basket:
         return self.__Items[sku]
     
     def addItems(self,sku,qty):
+        if qty<0:
+            raise ValueError('Negative Quantity is not allowed')
         self.__Items[sku]= self.basketItems(sku)+qty
+        
+    def removeItems(self,sku,qty):
+        if qty<0:
+            raise ValueError('Negative Quantity is not allowed')
+        if self.basketItems(sku)<qty:
+            raise ValueError('Basket is Empty')
+        
+        self.__Items[sku]= self.basketItems(sku)-qty
