@@ -1,10 +1,10 @@
 #GitHub:https://github.com/10533185/Shopping-items.git
 
-#Global Variables Rate
+#Global Variable - Rate
 
-Rate={'EUR':1,'USD':1.09,'CAD':1.53,'GBP':0.88}
+Rate={'EUR':1,'USD':1.09,'CAD':1.53,'GBP':0.88} # 1 Euro equalant is assigned to different currencies.
 
-#Global Variables Products
+#Global Variable - Products
 
 Products={'Ball-Red':{'Name':'Cosco Ball','Description':'High Bouncing Ball','Seller':'Amazon traders','price':4,'Currency':'EUR'},
           'Shirt-small':{'Name':'Puma T Shirt','Description':'Slim fit-made for men,Higly Attractive Design','Seller':'John','price':3,'Currency':'CAD'},
@@ -18,7 +18,7 @@ class Basket:
         self.__Items = b.copy()
         
         
-#Method to check product Quantity in the basket:
+#Method to check Quantity of product in the basket:
 
     def basketItems(self,sku):
         if sku not in self.__Items:
@@ -26,7 +26,7 @@ class Basket:
                 
         return self.__Items[sku]
     
-#Method to addItems in the basket:
+#Method to addItems to the basket:
 
     def addItems(self,sku,qty):
         if qty<0:
@@ -106,13 +106,5 @@ class Basket:
             print(txt5.format(Desc))
                 
                 
-        
-            
-                
-        
-            
-            
-        
-                       
             
         
