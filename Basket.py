@@ -2,9 +2,9 @@
 
 Rate={'EUR':1,'USD':1.09,'CAD':1.53,'GBP':0.88}
 
-Products={'Ball-Red':{'Description':'High Bouncing Ball','Seller':'Amazon traders','price':4,'Currency':'EUR'},
-          'Shirt-small':{'Description':'Slim fit-made for men','Seller':'John','price':3,'Currency':'CAD'},
-          'Watch-med':{'Description':'Stylish Design-made for men','Seller':'Andrew','price':1,'Currency':'USD'}}
+Products={'Ball-Red':{'Name':'Cosco Ball','Description':'High Bouncing Ball','Seller':'Amazon traders','price':4,'Currency':'EUR'},
+          'Shirt-small':{'Name':'Puma T Shirt','Description':'Slim fit-made for men,Higly Attractive Design','Seller':'John','price':3,'Currency':'CAD'},
+          'Watch-med':{'Name':'Titan Watch','Description':'Stylish,Analog,Design-made for men','Seller':'Andrew','price':1,'Currency':'USD'}}
 
 class Basket:
     
@@ -22,6 +22,8 @@ class Basket:
         if qty<0:
             raise ValueError('Negative Quantity is not permitted')
         self.__Items[sku]= self.basketItems(sku)+qty
+        
+        
         print("Contents in the Basket after Adding Item: ")
         for k,v in list(self.__Items.items()):
             if v==0:
@@ -82,11 +84,31 @@ class Basket:
         return total
     
     def basketContents(self):
+        print("Contents in the Basket:")
         for k,v in list(self.__Items.items()):
             val=v
-            txt="Quantity is {}"
-            print("Contents in the Basket:")
-            print(Products[k],txt.format(val))
+            txt="Quantity : {}"
+            Key=k
+            txt6="SKU : {}"
+            Desc=Products[k]['Description']
+            txt5="Description: {}"
+            Price=Products[k]['price']
+            txt4="Price : {}"
+            Curr=Products[k]['Currency']
+            txt3="Currency : {}"
+            seller=Products[k]['Seller']
+            txt2="Seller : {}"
+            Name=Products[k]['Name']
+            txt1="Name : {}"
+            
+            print(txt6.format(Key))
+            print(txt1.format(Name))
+            print(txt4.format(Price))
+            print(txt3.format(Curr))
+            print(txt5.format(Desc))
+            print(txt.format(val))
+            print(txt2.format(seller))
     
     
+        
         
