@@ -26,8 +26,13 @@ class Basket:
         for k,v in list(self.__Items.items()):
             if v==0:
                 del self.__Items[k]
-            
-            print(k,v)                     
+            val=v
+            Key=k
+            txt="--Quantity : {}"
+            txt1="SKU : {} ---"
+           
+            print(txt1.format(Key),txt.format(val))
+                                 
           
         
     def removeItems(self,sku,qty):
@@ -46,8 +51,13 @@ class Basket:
         
         print("Contents in the Basket after Removing Item: ")
         for k,v in list(self.__Items.items()):
+            val=v
+            Key=k
+            txt="--Quantity : {}"
+            txt1="SKU : {} ---"
+           
+            print(txt1.format(Key),txt.format(val))
             
-            print(k,v)
         
         
         
@@ -73,6 +83,10 @@ class Basket:
     
     def basketContents(self):
         for k,v in list(self.__Items.items()):
-            print(k,v)
+            val=v
+            txt="Quantity is {}"
+            print("Contents in the Basket:")
+            print(Products[k],txt.format(val))
     
     
+        
