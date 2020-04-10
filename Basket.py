@@ -1,3 +1,5 @@
+#GitHub:https://github.com/10533185/Shopping-items.git
+
 #Global Variables Rate
 
 Rate={'EUR':1,'USD':1.09,'CAD':1.53,'GBP':0.88}
@@ -14,7 +16,7 @@ class Basket:
     
     def __init__(self,b={}):
         self.__Items = b.copy()
-        print(self.__Items)
+        
         
 #Method to check product Quantity in the basket:
 
@@ -72,36 +74,40 @@ class Basket:
             if Products[k]['Currency'] == 'GBP':
                 total+=GBP*v*Products[k]['price']
             Value=Products['Ball-Red']['Currency']
-            txt="Total Price [ in {} ] :"
-            print(txt.format(Value),total)
-        return total
+            txt="Total Value of Items in the Basket [ in {} ] :"
+            
+        return print(txt.format(Value),total)
     
 #Method to show basket contents:
     
     def basketContents(self):
-        print("Items : \n")
+        print("Basket Items : \n")
         for k,v in list(self.__Items.items()):
             val=v
             txt="Quantity : {}"
             Key=k
             txt6="SKU : {}"
             Desc=Products[k]['Description']
-            txt5="Description: {}"
+            txt5="Description: {} \n"
             Price=Products[k]['price']
             txt4="Price : {}"
             Curr=Products[k]['Currency']
             txt3="{}"
             seller=Products[k]['Seller']
-            txt2="Seller : {}\n"
+            txt2="Seller : {}"
             Name=Products[k]['Name']
             txt1="Name : {}"
-            print(txt5.format(Desc))
+            
             print(txt6.format(Key))
             print(txt1.format(Name))
             print(txt4.format(Price),txt3.format(Curr))                      
             print(txt.format(val))
-            print(txt2.format(seller))    
+            print(txt2.format(seller))
+            print(txt5.format(Desc))
                 
+                
+        
+            
                 
         
             
