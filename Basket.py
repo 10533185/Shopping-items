@@ -1,6 +1,6 @@
 #Global Variables
 
-Rate={'Ball-Red':5,'Ball-White':6,'Pen-Blue':2,'Paper-White':3,'Shirt-small':5,'Shirt-Med':6,'Watch-med':25,'Watch-small':15}
+Rate={'Euro':2,'USD':5,'CAD':1,'GBP':3}
 
 Products={'Ball-Red':{'Description':'High Bouncing Ball','Seller':'Amazon traders','price':4,'Currency':'EUR'},
           'Shirt-small':{'Description':'Slim fit-made for men','Seller':'John','price':3,'Currency':'USD'},
@@ -55,7 +55,7 @@ class Basket:
     def value(self):
         total=0
         for k,v in self.__Items.items():
-            total+=v*Rate[k]
+            total+=v*Products[k]['price']
             print(k,v)
         return total
     
@@ -63,6 +63,3 @@ class Basket:
         for k,v in list(self.__Items.items()):
             print(k,v)
     
-    
-        
-            
