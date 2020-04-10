@@ -21,22 +21,11 @@ class Basket:
     def addItems(self,sku,qty):
         if qty<0:
             raise ValueError('Negative Quantity is not permitted')
+        
         self.__Items[sku]= self.basketItems(sku)+qty
-        
-        
-        print("Contents in the Basket after Adding Item: ")
-        for k,v in list(self.__Items.items()):
-            if v==0:
-                del self.__Items[k]
-            val=v
-            Key=k
-            txt="--Quantity : {}"
-            txt1="SKU : {} ---"
-           
-            print(txt1.format(Key),txt.format(val))
-                                 
-          
-        
+        print("Contents in the Basket after Adding Item: \n")
+        print(self.basketContents())
+                
     def removeItems(self,sku,qty):
         for k,v in list(self.__Items.items()):
             if v==0:
@@ -51,19 +40,9 @@ class Basket:
         
         self.__Items[sku]= self.basketItems(sku)-qty
         
-        print("Contents in the Basket after Removing Item: ")
-        for k,v in list(self.__Items.items()):
-            val=v
-            Key=k
-            txt="--Quantity : {}"
-            txt1="SKU : {} ---"
-           
-            print(txt1.format(Key),txt.format(val))
+        print("Contents in the Basket after Removing Item: \n")
+        print(self.basketContents())
             
-        
-        
-        
-        
     def value(self):
         total=0
         EUR=Rate['EUR']
@@ -80,11 +59,13 @@ class Basket:
                 total+=CAD*v*Products[k]['price']
             if Products[k]['Currency'] == 'GBP':
                 total+=GBP*v*Products[k]['price']
-            
+            Value=Products[k]['Currency']
+            txt="Total Price [ in {} ] :"
+            print(txt.format(Value),total)
         return total
     
     def basketContents(self):
-        print("Contents in the Basket:")
+        print("Items : \n")
         for k,v in list(self.__Items.items()):
             val=v
             txt="Quantity : {}"
@@ -95,20 +76,16 @@ class Basket:
             Price=Products[k]['price']
             txt4="Price : {}"
             Curr=Products[k]['Currency']
-            txt3="Currency : {}"
+            txt3="{}"
             seller=Products[k]['Seller']
-            txt2="Seller : {}"
+            txt2="Seller : {}\n"
             Name=Products[k]['Name']
             txt1="Name : {}"
             
             print(txt6.format(Key))
             print(txt1.format(Name))
-            print(txt4.format(Price))
-            print(txt3.format(Curr))
-            print(txt5.format(Desc))
+            print(txt4.format(Price),txt3.format(Curr))                      
             print(txt.format(val))
-            print(txt2.format(seller))
-    
-    
-        
+            print(txt2.format(seller))    
+                
         
