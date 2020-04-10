@@ -1,3 +1,5 @@
+#Global Variables
+
 Rate={'Ball-Red':5,'Ball-White':6,'Pen-Blue':2,'Paper-White':3,'Shirt-small':5,'Shirt-Med':6,'Watch-med':25,'Watch-small':15}
 
 Products={'Ball-Red':{'Description':'High Bouncing Ball','Seller':'Amazon traders','price':4,'Currency':'EUR'},
@@ -20,13 +22,13 @@ class Basket:
         if qty<0:
             raise ValueError('Negative Quantity is not permitted')
         self.__Items[sku]= self.basketItems(sku)+qty
-        
+        print("Contents in the Basket after Adding Item: ")
         for k,v in list(self.__Items.items()):
             if v==0:
                 del self.__Items[k]
-            print(k,v)
-                      
             
+            print(k,v)                     
+          
         
     def removeItems(self,sku,qty):
         for k,v in list(self.__Items.items()):
@@ -41,7 +43,11 @@ class Basket:
         
         
         self.__Items[sku]= self.basketItems(sku)-qty
-        print(k,v)
+        
+        print("Contents in the Basket after Removing Item: ")
+        for k,v in list(self.__Items.items()):
+            
+            print(k,v)
         
         
         
@@ -57,5 +63,6 @@ class Basket:
         for k,v in list(self.__Items.items()):
             print(k,v)
     
-            
+    
+        
             
