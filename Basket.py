@@ -1,9 +1,9 @@
 #Global Variables
 
-Rate={'Euro':2,'USD':5,'CAD':1,'GBP':3}
+Rate={'EUR':1,'USD':1.09,'CAD':1.53,'GBP':0.88}
 
 Products={'Ball-Red':{'Description':'High Bouncing Ball','Seller':'Amazon traders','price':4,'Currency':'EUR'},
-          'Shirt-small':{'Description':'Slim fit-made for men','Seller':'John','price':3,'Currency':'USD'},
+          'Shirt-small':{'Description':'Slim fit-made for men','Seller':'John','price':3,'Currency':'CAD'},
           'Watch-med':{'Description':'Stylish Design-made for men','Seller':'Andrew','price':1,'Currency':'USD'}}
 
 class Basket:
@@ -54,12 +54,25 @@ class Basket:
         
     def value(self):
         total=0
+        EUR=Rate['EUR']
+        USD=Rate['USD']
+        CAD=Rate['CAD']
+        GBP=Rate['GBP']
+        
         for k,v in self.__Items.items():
-            total+=v*Products[k]['price']
-            print(k,v)
+            if Products[k]['Currency'] == 'EUR':
+                total+=EUR*v*Products[k]['price']
+            if Products[k]['Currency'] == 'USD':
+                total+=USD*v*Products[k]['price']
+            if Products[k]['Currency'] == 'CAD':
+                total+=CAD*v*Products[k]['price']
+            if Products[k]['Currency'] == 'GBP':
+                total+=GBP*v*Products[k]['price']
+            
         return total
     
     def basketContents(self):
         for k,v in list(self.__Items.items()):
             print(k,v)
+    
     
